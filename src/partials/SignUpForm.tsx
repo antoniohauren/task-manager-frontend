@@ -1,27 +1,28 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { SignInDto, SignInDtoSchema } from '../api/dto/sign-in.dto';
+import { useNavigate } from 'react-router-dom';
+import { SignUpDto, SignUpDtoSchema } from '../api/dto/sign-up.dto';
+import { useApiSignUp } from '../api/hooks/useApiSignUp';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import { useApiLogin } from '../api/hooks/useApiLogin';
 import { useUserStore } from '../stores/userStore';
-import { useNavigate } from 'react-router-dom';
 
-export default function LoginForm() {
+export default function SignInForm() {
   const setUser = useUserStore(({ setUser }) => setUser);
 
-  const { mutate } = useApiLogin();
+  const { mutate } = useApiSignUp();
   const navigate = useNavigate();
 
-  const form = useForm<SignInDto>({
-    resolver: zodResolver(SignInDtoSchema),
+  const form = useForm<SignUpDto>({
+    resolver: zodResolver(SignUpDtoSchema),
     defaultValues: {
+      name: '',
       email: '',
       password: '',
     },
   });
 
-  const onSubmit: SubmitHandler<SignInDto> = (data) =>
+  const onSubmit: SubmitHandler<SignUpDto> = (data) =>
     mutate(data, {
       onSuccess: (response) => {
         setUser(response.data);
@@ -34,6 +35,20 @@ export default function LoginForm() {
       className="flex flex-col gap-2 w-[300px]"
       onSubmit={form.handleSubmit(onSubmit)}
     >
+      <Controller
+        name="name"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Input
+            label="Name"
+            placeholder="Name"
+            value={field.value}
+            onChange={field.onChange}
+            error={fieldState.error?.message}
+          />
+        )}
+      />
+
       <Controller
         name="email"
         control={form.control}
@@ -53,8 +68,8 @@ export default function LoginForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Input
-            placeholder="Senha"
-            label="Senha"
+            placeholder="Password"
+            label="Password"
             value={field.value}
             onChange={field.onChange}
             error={fieldState.error?.message}
@@ -62,7 +77,7 @@ export default function LoginForm() {
         )}
       />
 
-      <Button>Login</Button>
+      <Button>Register</Button>
     </form>
   );
 }

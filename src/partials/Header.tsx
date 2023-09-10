@@ -1,10 +1,10 @@
-import { useApiLogout } from '../api/hooks/useApiLogout';
+import { useApiSignOut } from '../api/hooks/useApiSignOut';
 import { useUserStore } from '../stores/userStore';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
   const setUser = useUserStore(({ setUser }) => setUser);
-  const { mutate } = useApiLogout();
+  const { mutate } = useApiSignOut();
   const navigate = useNavigate();
 
   return (
@@ -15,7 +15,7 @@ export default function Header() {
           mutate(undefined, {
             onSuccess: () => {
               setUser(null);
-              navigate('/login');
+              navigate('/sign-in');
             },
           })
         }

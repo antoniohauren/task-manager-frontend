@@ -1,11 +1,11 @@
-import LoginForm from '../partials/LoginForm';
+import SignInForm from '../partials/SignInForm';
 
-export default function LoginPage() {
+export default function SignInPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-4xl font-bold mb-4">Login</h1>
 
-      <LoginForm />
+      <SignInForm />
     </div>
   );
 }
