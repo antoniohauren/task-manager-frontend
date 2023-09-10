@@ -5,11 +5,13 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import { useApiLogin } from '../api/hooks/useApiLogin';
 import { useUserStore } from '../stores/userStore';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
   const setUser = useUserStore(({ setUser }) => setUser);
 
   const { mutate } = useApiLogin();
+  const navigate = useNavigate();
 
   const form = useForm<SignInDto>({
     resolver: zodResolver(SignInDtoSchema),
@@ -23,6 +25,7 @@ export default function LoginForm() {
     mutate(data, {
       onSuccess: (response) => {
         setUser(response.data);
+        navigate('/');
       },
     });
 

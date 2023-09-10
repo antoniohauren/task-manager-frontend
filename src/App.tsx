@@ -1,7 +1,5 @@
-import LoginPage from './pages/LoginPage';
-
 function App() {
-  return <LoginPage />;
+  return <h1>Task manager</h1>;
 }
 
 export default App;
