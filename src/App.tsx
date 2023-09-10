@@ -1,13 +1,7 @@
-import Input from "./components/Input/Input";
+import LoginPage from './pages/LoginPage';
 
 function App() {
-  return (
-    <>
-      <Input label="email" />
-
-      <Input label="password" />
-    </>
-  );
+  return <LoginPage />;
 }
 
 export default App;
