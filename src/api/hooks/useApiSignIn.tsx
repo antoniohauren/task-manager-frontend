@@ -5,7 +5,7 @@ import { endpoints } from '../endpoints';
 import { User } from '../../stores/userStore';
 
 export function useApiSignIn() {
-  const endpoint = endpoints.signIn;
+  const endpoint = endpoints.auth.signIn;
 
   function mutationFn(data: SignInDto) {
     return publicApi.post<User>(endpoint, data);

@@ -5,7 +5,7 @@ import { User } from '../../stores/userStore';
 import { SignUpDto } from '../dto/sign-up.dto';
 
 export function useApiSignUp() {
-  const endpoint = endpoints.signUp;
+  const endpoint = endpoints.auth.signUp;
 
   function mutationFn(data: SignUpDto) {
     return publicApi.post<User>(endpoint, data);

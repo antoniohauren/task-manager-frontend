@@ -6,11 +6,16 @@ import App from './App.tsx';
 import './index.css';
 import SignInPage from './pages/SignInPage.tsx';
 import SignUpPage from './pages/SignUpPage.tsx';
+import NewTaskPage from './pages/NewTaskPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/new-task',
+    element: <NewTaskPage />,
   },
   {
     path: '/sign-in',

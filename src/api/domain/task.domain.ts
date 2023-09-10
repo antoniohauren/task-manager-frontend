@@ -1,8 +1,10 @@
+type TaskStatus = 'TODO' | 'DOING' | 'DONE' | 'ARCHIVED';
+
 export type TaskDomain = {
   id: string;
   title: string;
   description: string;
-  status: 'TODO' | 'DOING' | 'DONE' | 'ARCHIVED';
+  status: TaskStatus;
 };
 
-export type TaskListDomain = TaskDomain[];
+export type TaskListDomain = Record<TaskStatus, TaskDomain[]>;

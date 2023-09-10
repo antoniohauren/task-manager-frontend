@@ -4,6 +4,7 @@ import { NewTaskDto, NewTaskDtoSchema } from '../api/dto/new-task.dto';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { useApiNewTask } from '../api/hooks/useApiNewTask';
+import { useNavigate } from 'react-router-dom';
 
 export default function TaskForm() {
   const form = useForm<NewTaskDto>({
@@ -15,11 +16,12 @@ export default function TaskForm() {
   });
 
   const { mutate } = useApiNewTask();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<NewTaskDto> = (data) =>
     mutate(data, {
       onSuccess: () => {
-        alert('success');
+        navigate('/');
       },
     });
 
