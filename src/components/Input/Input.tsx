@@ -2,9 +2,9 @@ import { InputProps } from "./Input.types";
 
 export default function Input({ label }: InputProps) {
   return (
-    <label className="flex flex-col gap-2">
+    <label className="flex flex-col">
       {label}
-      <input type="text" />
+      <input type="text" className="border-2"/>
     </label>
   );
 }

@@ -1,9 +1,11 @@
+import Input from "./components/Input/Input";
+
 function App() {
   return (
     <>
-      <p className="text-red-500">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Input label="email" />
+
+      <Input label="password" />
     </>
   );
 }
