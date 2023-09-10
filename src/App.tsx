@@ -1,5 +1,12 @@
+import Header from './partials/Header';
+
 function App() {
-  return <h1>Task manager</h1>;
+  return (
+    <div>
+      <Header />
+      <h1>Task manager</h1>
+    </div>
+  );
 }
 
 export default App;

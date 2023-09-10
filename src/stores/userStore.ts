@@ -10,14 +10,14 @@ export type User = {
 };
 
 export type UserStore = {
-  user?: User;
-  setUser: (user: User) => void;
+  user?: User | null;
+  setUser: (user: User | null) => void;
 };
 
 export const useUserStore = create<UserStore>()(
   persist(
     (set) => ({
-      user: undefined,
+      user: null,
       setUser: (user) => set({ user }),
     }),
     {

@@ -4,7 +4,7 @@ import { SignInDto } from '../dto/sign-in.dto';
 import { endpoints } from '../endpoints';
 import { User } from '../../stores/userStore';
 
-export function useApiLogin(onSuccess?: () => void) {
+export function useApiLogin() {
   const endpoint = endpoints.signIn;
 
   function mutationFn(data: SignInDto) {
@@ -13,6 +13,5 @@ export function useApiLogin(onSuccess?: () => void) {
 
   return useMutation({
     mutationFn,
-    onSuccess,
   });
 }
