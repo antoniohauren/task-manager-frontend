@@ -7,6 +7,7 @@ import './index.css';
 import SignInPage from './pages/SignInPage.tsx';
 import SignUpPage from './pages/SignUpPage.tsx';
 import NewTaskPage from './pages/NewTaskPage.tsx';
+import ArchivedTasksPage from './pages/ArchivedTasksPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/new-task',
     element: <NewTaskPage />,
+  },
+  {
+    path: '/archived-tasks',
+    element: <ArchivedTasksPage />,
   },
   {
     path: '/sign-in',

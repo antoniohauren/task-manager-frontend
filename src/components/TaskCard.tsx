@@ -8,6 +8,7 @@ type TaskCardProps = {
   description: string;
   status: string;
   id: string;
+  archived?: boolean;
 };
 
 export default function TaskCard({
@@ -15,6 +16,7 @@ export default function TaskCard({
   description,
   status,
   title,
+  archived,
 }: TaskCardProps) {
   const { mutate: changeStatus } = useApiUpdateTaskStatus(id);
   const { mutate: archiveTask } = useApiArchiveTask(id);
@@ -31,11 +33,13 @@ export default function TaskCard({
 
   return (
     <div className="border-2 w-full">
-      <div className="flex gap-2">
-        <h1 className="text-lg font-semibold bg-gray-100 p-2 w-full">
-          {title}
-        </h1>
-        <p onClick={() => handleArchiveTask()}>ARCHIVE</p>
+      <div className="flex gap-2 bg-gray-100 items-center p-2">
+        <h1 className="text-lg font-semibold w-full">{title}</h1>
+        {!archived && (
+          <p className="cursor-pointer" onClick={() => handleArchiveTask()}>
+            ARCHIVE
+          </p>
+        )}
       </div>
       <p className="p-2">{description}</p>
 

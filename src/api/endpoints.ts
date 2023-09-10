@@ -10,5 +10,6 @@ export const endpoints = {
     tasks: '/task',
     updateStatus: '/task/status/',
     archive: '/task/archive/',
+    archivedTasks: '/task/archived',
   },
 };
