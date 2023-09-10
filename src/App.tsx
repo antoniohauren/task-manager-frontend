@@ -1,5 +1,6 @@
 import Header from './partials/Header';
 import TaskForm from './partials/TaskForm';
+import TaskList from './partials/TaskList';
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       <Header />
 
       <TaskForm />
+
+      <TaskList />
     </div>
   );
 }

@@ -5,5 +5,6 @@ export const endpoints = {
   refresh: '/auth/refresh',
   tasks: {
     newTask: '/task',
+    tasks: '/task',
   },
 };
