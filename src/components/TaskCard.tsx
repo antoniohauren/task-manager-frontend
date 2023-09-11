@@ -44,7 +44,10 @@ export default function TaskCard({
       <p className="p-2">{description}</p>
 
       {status === 'TODO' && (
-        <Button onClick={() => handleUpdateStatus('DOING')}>DOING</Button>
+        <div className="flex">
+          <Button onClick={() => handleUpdateStatus('DOING')}>TODO</Button>
+          <Button onClick={() => handleUpdateStatus('DONE')}>DONE</Button>
+        </div>
       )}
 
       {status === 'DOING' && (
